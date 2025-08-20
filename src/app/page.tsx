@@ -160,8 +160,8 @@ export default function Home() {
             <div className="space-y-8 transform perspective-1000 smooth-3d">
                                         <div className="transform rotate-y-12 hover:rotate-y-0 gpu-accelerated">
                             <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight">
-                              <span className="block transform translate-z-20 gpu-accelerated animate-text-depth">En convenio con</span>
-                              <span className="block text-blue-700 transform translate-z-40 gpu-accelerated animate-text-depth" style={{ animationDelay: '0.5s' }}>MAXILLARIS</span>
+                              <span className="block text-blue-700 transform translate-z-40 gpu-accelerated animate-text-depth">MAXILLARIS</span>
+                              <span className="block transform translate-z-20 gpu-accelerated animate-text-depth" style={{ animationDelay: '0.5s' }}>en convenio con APOFI</span>
                             </h1>
                           </div>
 
@@ -240,7 +240,7 @@ export default function Home() {
                               <div className="flex items-center justify-center lg:justify-start gap-4 text-white/80">
                   <div className="flex items-center gap-2">
                     <span className="text-blue-300 text-2xl">⏰</span>
-                    <span className="text-sm">Solo hasta el 24 de marzo de 2025</span>
+                    <span className="text-sm">Solo hasta el 25 de agosto de 2025</span>
                   </div>
                 </div>
             </div>
@@ -618,9 +618,9 @@ export default function Home() {
                     <div className="space-y-4">
                       {[
                         '85% de descuento en tu tratamiento',
-                        'Aparato incluido (no lo pagas)',
+                        '1er Aparato incluido (no lo pagas)',
                         'Controles incluidos',
-                        'Válido por 6 meses',
+                        'Válido hasta el día del sorteo',
                         'Consulta de evaluación incluida',
                         'Sin restricciones ocultas',
                         'No transferible a familiares'
@@ -659,8 +659,8 @@ export default function Home() {
                     <h4 className="text-xl font-bold mb-3">⏰ Tiempo Limitado</h4>
                     <div className="grid grid-cols-3 gap-2 text-center">
                       <div className="bg-white/20 rounded-lg p-3">
-                        <div className="text-2xl font-bold">24</div>
-                        <div className="text-sm">Marzo</div>
+                        <div className="text-2xl font-bold">25</div>
+                        <div className="text-sm">Agosto</div>
                       </div>
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="text-2xl font-bold">1:00</div>
@@ -717,7 +717,9 @@ export default function Home() {
             <div className="space-y-4">
               <h4 className="text-xl font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-2 text-gray-300">
-                <p>📞 +51 1 234 5678</p>
+                <a href="https://wa.me/51940225052" target="_blank" rel="noopener noreferrer" className="block hover:text-green-400 transition-colors">
+                  📞 +51 940 225 052
+                </a>
                 <p>📧 info@apofi.com</p>
                 <p>📍 Lima, Perú</p>
               </div>
@@ -725,15 +727,42 @@ export default function Home() {
             
             <div className="space-y-4">
               <h4 className="text-xl font-semibold text-white mb-4">Redes Sociales</h4>
-              <div className="flex justify-center gap-4">
-                <a href="#" className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110">
+              <div className="grid grid-cols-2 gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61575793183444" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors group"
+                >
                   <span className="text-xl">📘</span>
+                  <span className="text-sm group-hover:text-blue-400">Facebook</span>
                 </a>
-                <a href="#" className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110">
+                <a 
+                  href="https://www.instagram.com/apofi.lima" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-pink-400 transition-colors group"
+                >
                   <span className="text-xl">📷</span>
+                  <span className="text-sm group-hover:text-pink-400">@apofi.lima</span>
                 </a>
-                <a href="#" className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-300 transform hover:scale-110">
+                <a 
+                  href="https://www.tiktok.com/@apofi.lima" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors group"
+                >
+                  <span className="text-xl">🎵</span>
+                  <span className="text-sm group-hover:text-cyan-400">@apofi.lima</span>
+                </a>
+                <a 
+                  href="https://wa.me/51940225052" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-green-400 transition-colors group"
+                >
                   <span className="text-xl">💬</span>
+                  <span className="text-sm group-hover:text-green-400">WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -783,7 +812,7 @@ export default function Home() {
               
               <div className="flex items-center justify-center gap-3 text-blue-300 text-lg">
                 <span className="text-2xl">💬</span>
-                <span>WhatsApp: +51 1 234 5678</span>
+                <span>WhatsApp: +51 940 225 052</span>
               </div>
               
               {/* Elementos decorativos flotantes */}

@@ -79,35 +79,135 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Premios</h2>
               <div className="space-y-3">
                 <p className="leading-relaxed">
-                  <strong>4.1 Cantidad:</strong> Se sortearán 3 bonos de S/ 3,500 cada uno.
+                  <strong>4.1 Cantidad:</strong> Se sortearán 5 bonos con 85% de descuento en tratamientos odontológicos.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>4.2 Aplicación:</strong> Los bonos son aplicables a cualquier programa de especialización 
-                  ofrecido por APOFI.
+                  <strong>4.2 Aplicación:</strong> Los bonos son aplicables a tratamientos de ortodoncia funcional 
+                  ofrecidos por APOFI en convenio con Clínica Maxillaris.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>4.3 Validez:</strong> Los bonos tienen una validez de 6 meses desde la fecha de emisión.
+                  <strong>4.3 Validez:</strong> Los bonos tienen una validez de 6 meses desde la fecha de inscripción en el sorteo.
                 </p>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Fechas Importantes</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Planes de Tratamiento y Precios</h2>
+              
+              <div className="bg-blue-50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-bold text-blue-800 mb-4">📋 Plan 1: Tratamiento con AOF (Aparato de Ortodoncia Funcional)</h3>
+                <div className="space-y-3 text-gray-700">
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-lg">💰</span>
+                    <div>
+                      <strong>Precio del tratamiento:</strong> $600 USD
+                      <ul className="mt-2 ml-4 space-y-1 text-sm">
+                        <li>• Incluye 1era toma de ambas radiografías (Panorámica y Cefalométrica)</li>
+                        <li>• Incluye su 1er aparato de ortodoncia funcional</li>
+                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo adicional)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-lg">🔄</span>
+                    <div>
+                      <strong>Aparatos adicionales:</strong> S/250 por cada nuevo aparato
+                      <p className="text-sm mt-1">(Solo cuando el Dr. indique que sea necesario un cambio de aparato)</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-lg">🦷</span>
+                    <div>
+                      <strong>Transición a alineadores:</strong> $500 USD adicionales
+                      <p className="text-sm mt-1">(Solo si el Dr. indique que puede pasar a alineadores durante el tratamiento)</p>
+                      <p className="text-sm mt-1 text-blue-600">⚠️ Nota: Este costo cubre todos los juegos completos de alineadores</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-green-50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-bold text-green-800 mb-4">🎯 Plan 2: Tratamiento Directo con MARPE</h3>
+                <div className="space-y-3 text-gray-700">
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 text-lg">💰</span>
+                    <div>
+                      <strong>Precio del tratamiento:</strong> $1,000 USD
+                      <ul className="mt-2 ml-4 space-y-1 text-sm">
+                        <li>• Incluye planificación con radiografías</li>
+                        <li>• Incluye aparato de MARPE</li>
+                        <li>• Incluye instalación del aparato</li>
+                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo adicional)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 text-lg">🔄</span>
+                    <div>
+                      <strong>Transición a AOF:</strong> S/250 por cada aparato adicional
+                      <p className="text-sm mt-1">(Si pasa de MARPE a AOF durante el tratamiento)</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 text-lg">🦷</span>
+                    <div>
+                      <strong>Transición a alineadores:</strong> $500 USD adicionales
+                      <p className="text-sm mt-1">(Solo si el Dr. indique que puede pasar a alineadores)</p>
+                      <p className="text-sm mt-1 text-green-600">⚠️ Nota: Este costo cubre todos los juegos completos de alineadores</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-purple-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-purple-800 mb-4">⏰ Información Importante sobre Controles</h3>
+                <div className="space-y-3 text-gray-700">
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-600 text-lg">📅</span>
+                    <div>
+                      <strong>Frecuencia de controles:</strong> Cada 2 meses
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-600 text-lg">✅</span>
+                    <div>
+                      <strong>Costo de controles:</strong> Sin costo adicional (incluido en ambos planes)
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-600 text-lg">💡</span>
+                    <div>
+                      <strong>Nota importante:</strong> Los controles son obligatorios para el éxito del tratamiento
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Fechas Importantes</h2>
               <div className="space-y-3">
                 <p className="leading-relaxed">
-                  <strong>5.1 Inscripción:</strong> Del 1 de enero al 23 de marzo de 2025.
+                  <strong>6.1 Inscripción:</strong> Desde el momento de registro hasta el 25 de agosto de 2025.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>5.2 Sorteo:</strong> Lunes 24 de marzo de 2025 a las 1:00 p.m. (Hora de Perú).
+                  <strong>6.2 Sorteo:</strong> Domingo 25 de agosto de 2025 a las 1:00 p.m. (Hora de Perú).
                 </p>
                 <p className="leading-relaxed">
-                  <strong>5.3 Resultados:</strong> Se publicarán en el Fanpage oficial de APOFI.
+                  <strong>6.3 Resultados:</strong> Se publicarán en el Fanpage oficial de APOFI.
+                </p>
+                <p className="leading-relaxed">
+                  <strong>6.4 Inicio del beneficio:</strong> El descuento aplica desde el día de inscripción en el sorteo.
                 </p>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Selección de Ganadores</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Selección de Ganadores</h2>
               <p className="leading-relaxed">
                 Los ganadores serán seleccionados mediante un sorteo electrónico aleatorio, 
                 supervisado por un notario público, garantizando la transparencia del proceso.
@@ -115,7 +215,7 @@ export default function Terminos() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Notificación</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Notificación</h2>
               <p className="leading-relaxed">
                 Los ganadores serán notificados por WhatsApp y correo electrónico en un plazo máximo 
                 de 24 horas después del sorteo. Deberán confirmar su aceptación en un plazo de 48 horas.
@@ -123,7 +223,7 @@ export default function Terminos() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Restricciones</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Restricciones</h2>
               <div className="space-y-3">
                 <p className="leading-relaxed">
                   <strong>8.1 Transferencia:</strong> Los bonos no son transferibles a terceros.
@@ -138,7 +238,7 @@ export default function Terminos() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Privacidad</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Privacidad</h2>
               <p className="leading-relaxed">
                 APOFI se compromete a proteger la privacidad de los participantes. Los datos personales 
                 serán utilizados únicamente para fines del sorteo y no serán compartidos con terceros.
@@ -146,7 +246,7 @@ export default function Terminos() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Modificaciones</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Modificaciones</h2>
               <p className="leading-relaxed">
                 APOFI se reserva el derecho de modificar estos términos y condiciones en cualquier momento, 
                 notificando los cambios a través de la página web oficial.
@@ -154,12 +254,12 @@ export default function Terminos() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contacto</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Contacto</h2>
               <div className="space-y-2">
                 <p className="leading-relaxed">
                   <strong>APOFI - Escuela de Especialización Odontológica</strong>
                 </p>
-                <p className="leading-relaxed">📞 +51 1 234 5678</p>
+                <p className="leading-relaxed">📞 +51 940 225 052</p>
                 <p className="leading-relaxed">📧 info@apofi.com</p>
                 <p className="leading-relaxed">📍 Lima, Perú</p>
               </div>
