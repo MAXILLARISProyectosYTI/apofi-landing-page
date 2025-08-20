@@ -222,7 +222,7 @@ export default function Home() {
             <p className={`text-xl md:text-2xl text-white/90 mb-10 leading-relaxed transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <strong className="text-blue-300">Maxillaris en convenio con APOFI</strong> te ofrece ganar uno de los{' '}
               <strong className="text-yellow-300">5 bonos</strong> con{' '}
-              <strong className="text-yellow-300">85% de descuento</strong> en tu tratamiento
+              <strong className="text-yellow-300">85% de descuento</strong> en tu tratamiento de ortopedia funcional de los maxillares
             </p>
             
             <div className={`space-y-6 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -351,8 +351,7 @@ export default function Home() {
               ¡Participa ahora!
             </h2>
             <p className="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Completa el formulario y participa por uno de los <strong className="text-blue-600">5 bonos con 85% de descuento</strong> en tu tratamiento dental
-            </p>
+              Completa el formulario y participa por uno de los <strong className="text-blue-600">5 bonos con 85% de descuento</strong> en tu tratamiento de ortopedia funcional de los maxillares            </p>
           </div>
 
                     {isSubmitted ? (

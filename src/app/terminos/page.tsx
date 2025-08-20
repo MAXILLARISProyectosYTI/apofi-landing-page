@@ -82,7 +82,7 @@ export default function Terminos() {
                   <strong>4.1 Cantidad:</strong> Se sortearán 5 bonos con 85% de descuento en tratamientos odontológicos.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>4.2 Aplicación:</strong> Los bonos son aplicables a tratamientos de ortodoncia funcional 
+                  <strong>4.2 Aplicación:</strong> Los bonos son aplicables a tratamientos de ortopedia funcional 
                   ofrecidos por APOFI en convenio con Clínica Maxillaris.
                 </p>
                 <p className="leading-relaxed">
@@ -95,7 +95,7 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Planes de Tratamiento y Precios</h2>
               
               <div className="bg-blue-50 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold text-blue-800 mb-4">📋 Plan 1: Tratamiento con AOF (Aparato de Ortodoncia Funcional)</h3>
+                <h3 className="text-xl font-bold text-blue-800 mb-4">📋 Plan 1: Tratamiento con AOF (Aparato de Ortopedia Funcional)</h3>
                 <div className="space-y-3 text-gray-700">
                   <div className="flex items-start gap-3">
                     <span className="text-blue-600 text-lg">💰</span>
@@ -103,8 +103,8 @@ export default function Terminos() {
                       <strong>Precio del tratamiento:</strong> $600 USD
                       <ul className="mt-2 ml-4 space-y-1 text-sm">
                         <li>• Incluye 1era toma de ambas radiografías (Panorámica y Cefalométrica)</li>
-                        <li>• Incluye su 1er aparato de ortodoncia funcional</li>
-                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo adicional)</li>
+                        <li>• Incluye su 1er aparato de ortopedia funcional</li>
+                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo)</li>
                       </ul>
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export default function Terminos() {
                     <span className="text-blue-600 text-lg">🦷</span>
                     <div>
                       <strong>Transición a alineadores:</strong> $500 USD adicionales
-                      <p className="text-sm mt-1">(Solo si el Dr. indique que puede pasar a alineadores durante el tratamiento)</p>
+                      <p className="text-sm mt-1">(Solo si el Dr. indica que es necesario el uso de alineadores durante el tratamiento)</p>
                       <p className="text-sm mt-1 text-blue-600">⚠️ Nota: Este costo cubre todos los juegos completos de alineadores</p>
                     </div>
                   </div>
@@ -136,10 +136,11 @@ export default function Terminos() {
                     <div>
                       <strong>Precio del tratamiento:</strong> $1,000 USD
                       <ul className="mt-2 ml-4 space-y-1 text-sm">
-                        <li>• Incluye planificación con radiografías</li>
+                        <li>• Incluye primeras radiografias</li>
+                        <li>• Incluye planificación</li>
                         <li>• Incluye aparato de MARPE</li>
                         <li>• Incluye instalación del aparato</li>
-                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo adicional)</li>
+                        <li>• <strong>Exonerado de pago de controles</strong> (sin costo)</li>
                       </ul>
                     </div>
                   </div>
@@ -156,7 +157,7 @@ export default function Terminos() {
                     <span className="text-green-600 text-lg">🦷</span>
                     <div>
                       <strong>Transición a alineadores:</strong> $500 USD adicionales
-                      <p className="text-sm mt-1">(Solo si el Dr. indique que puede pasar a alineadores)</p>
+                      <p className="text-sm mt-1">(Solo si el Dr. indica que es necesario el uso de alineadores durante el tratamiento)</p>
                       <p className="text-sm mt-1 text-green-600">⚠️ Nota: Este costo cubre todos los juegos completos de alineadores</p>
                     </div>
                   </div>
@@ -195,7 +196,7 @@ export default function Terminos() {
                   <strong>6.1 Inscripción:</strong> Desde el momento de registro hasta el 25 de agosto de 2025.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>6.2 Sorteo:</strong> Domingo 25 de agosto de 2025 a las 1:00 p.m. (Hora de Perú).
+                  <strong>6.2 Sorteo:</strong> Domingo 25 de agosto de 2025 a las 11:59 hrs. (Hora de Perú).
                 </p>
                 <p className="leading-relaxed">
                   <strong>6.3 Resultados:</strong> Se publicarán en el Fanpage oficial de APOFI.

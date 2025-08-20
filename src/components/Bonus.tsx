@@ -81,7 +81,7 @@ export default function Bonus() {
                     Tratamientos incluidos
                   </h4>
                   <p className="text-gray-600 leading-relaxed">
-                    Aplica a ortodoncia, implantes, carillas, blanqueamiento y cualquier 
+                    Aplica a Ortopedia, implantes, carillas, blanqueamiento y cualquier 
                     otro tratamiento dental que necesites.
                   </p>
                 </div>
