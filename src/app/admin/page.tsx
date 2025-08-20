@@ -19,6 +19,9 @@ interface CampaignRegistration {
 }
 
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [registrations, setRegistrations] = useState<CampaignRegistration[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,9 +29,42 @@ export default function AdminPage() {
   const [sortBy, setSortBy] = useState<keyof CampaignRegistration>('createdAt');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
+  // Contraseña secreta para acceder al admin
+  const SECRET_PASSWORD = "ajsbjkbjkb23kj4b2k3jb8/(/%&KKNBShkjsbdajsdj3124234ñmcklnvxcjwsnfdwduf";
+
   useEffect(() => {
-    fetchRegistrations();
+    // Verificar si ya está autenticado (persistencia en sessionStorage)
+    const authStatus = sessionStorage.getItem('adminAuthenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+      fetchRegistrations();
+    } else {
+      setLoading(false);
+    }
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasswordError('');
+
+    if (password === SECRET_PASSWORD) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('adminAuthenticated', 'true');
+      fetchRegistrations();
+    } else {
+      setPasswordError('Contraseña incorrecta. Intenta nuevamente.');
+      setPassword('');
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem('adminAuthenticated');
+    setRegistrations([]);
+    setSearchTerm('');
+    setSortBy('createdAt');
+    setSortOrder('desc');
+  };
 
   const fetchRegistrations = async () => {
     try {
@@ -144,6 +180,80 @@ export default function AdminPage() {
     return sent ? 'text-green-600 bg-green-100' : 'text-red-600 bg-red-100';
   };
 
+  // Si no está autenticado, mostrar pantalla de login
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full">
+          {/* Login Card */}
+          <div className="bg-white rounded-2xl shadow-2xl p-8 border">
+            <div className="text-center mb-8">
+              <div className="text-6xl mb-4">🔐</div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Acceso Administrativo</h1>
+              <p className="text-gray-600">Ingresa la contraseña para acceder al panel</p>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Contraseña de Administrador
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Ingresa la contraseña"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-4 focus:ring-blue-400/30 focus:border-blue-500 transition-all duration-300"
+                  required
+                  autoFocus
+                />
+              </div>
+
+              {passwordError && (
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
+                  <div className="flex items-center gap-2 text-red-600">
+                    <span className="text-xl">⚠️</span>
+                    <span className="font-medium">{passwordError}</span>
+                  </div>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold text-lg py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                🔓 Acceder al Panel
+              </button>
+            </form>
+
+            <div className="mt-8 text-center">
+              <Link
+                href="/"
+                className="text-blue-600 hover:text-blue-800 text-sm underline"
+              >
+                ← Volver al Sorteo
+              </Link>
+            </div>
+          </div>
+
+          {/* Security Notice */}
+          <div className="mt-6 text-center">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+              <div className="flex items-center justify-center gap-2 text-yellow-800 mb-2">
+                <span className="text-xl">⚠️</span>
+                <span className="font-medium">Acceso Restringido</span>
+              </div>
+              <p className="text-yellow-700 text-sm">
+                Esta página solo es accesible para administradores autorizados
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
@@ -189,6 +299,12 @@ export default function AdminPage() {
                 className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
               >
                 📊 Exportar Excel
+              </button>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+              >
+                🚪 Cerrar Sesión
               </button>
               <Link
                 href="/"
