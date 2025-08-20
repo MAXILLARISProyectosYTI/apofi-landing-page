@@ -7,6 +7,9 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [countdown, setCountdown] = useState(4);
   const [formData, setFormData] = useState({
+    firstName: '',
+    paternalLastName: '',
+    maternalLastName: '',
     phone: '',
     email: '',
     acceptTerms: false
@@ -14,6 +17,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   useEffect(() => {
     // Contador regresivo
@@ -46,23 +50,57 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simular envío
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log('Datos del formulario:', formData);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Mostrar animación de confirmación después de 2 segundos
-    setTimeout(() => {
-      setShowConfirmation(true);
-    }, 2000);
+    try {
+      // Preparar los datos para la API de Maxillaris
+      const apiData = {
+        firstName: formData.firstName,
+        lastNameFather: formData.paternalLastName,
+        lastNameMother: formData.maternalLastName,
+        phoneNumber: formData.phone,
+        email: formData.email
+      };
+
+      console.log('Enviando datos a la API:', apiData);
+
+      // Enviar datos a la API de Maxillaris
+      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Respuesta de la API:', result);
+      
+      // Éxito - mostrar confirmación
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      
+      // Mostrar animación de confirmación después de 2 segundos
+      setTimeout(() => {
+        setShowConfirmation(true);
+      }, 2000);
+
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      
+      // Error - mostrar mensaje de error
+      setIsSubmitting(false);
+      setApiError('Hubo un error al enviar tu participación. Por favor, intenta nuevamente.');
+    }
   };
 
   const resetForm = () => {
-    setFormData({ phone: '', email: '', acceptTerms: false });
+    setFormData({ firstName: '', paternalLastName: '', maternalLastName: '', phone: '', email: '', acceptTerms: false });
     setIsSubmitted(false);
     setShowConfirmation(false);
+    setApiError(null);
   };
 
   return (
@@ -350,7 +388,7 @@ export default function Home() {
                     Formulario de Participación
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Completa tus datos!</h3>
-                  <p className="text-gray-600">Solo necesitamos 2 campos para participar</p>
+                  <p className="text-gray-600">Solo necesitamos 5 campos para participar</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
@@ -359,19 +397,100 @@ export default function Home() {
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gray-600">Progreso del formulario</span>
                       <span className="text-sm font-medium text-blue-600">
-                        {((formData.phone && formData.email && formData.acceptTerms) ? 100 : 
-                          ((formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 33.33).toFixed(0)}%
+                        {((formData.firstName && formData.paternalLastName && formData.maternalLastName && formData.phone && formData.email && formData.acceptTerms) ? 100 : 
+                          ((formData.firstName ? 1 : 0) + (formData.paternalLastName ? 1 : 0) + (formData.maternalLastName ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 16.67).toFixed(0)}%
                       </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
                         className="bg-gradient-to-r from-blue-500 to-cyan-600 h-2 rounded-full transition-all duration-500 ease-out"
                         style={{ 
-                          width: `${(formData.phone && formData.email && formData.acceptTerms) ? 100 : 
-                            ((formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 33.33}%` 
+                          width: `${(formData.firstName && formData.paternalLastName && formData.maternalLastName && formData.phone && formData.email && formData.acceptTerms) ? 100 : 
+                            ((formData.firstName ? 1 : 0) + (formData.paternalLastName ? 1 : 0) + (formData.maternalLastName ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 16.67}%` 
                         }}
                       ></div>
                     </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="firstName" className="block text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">👤</span>
+                      Nombre *
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        id="firstName"
+                        value={formData.firstName}
+                        onChange={(e) => handleInputChange('firstName', e.target.value)}
+                        placeholder="Tu nombre"
+                        className="w-full px-6 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-800 placeholder-gray-400 focus:ring-4 focus:ring-blue-400/30 focus:border-blue-500 transition-all duration-300 hover:border-blue-300 pr-12"
+                        required
+                      />
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <span className="text-blue-500 text-xl">👤</span>
+                      </div>
+                    </div>
+                    {formData.firstName && (
+                      <div className="flex items-center gap-2 text-green-600 text-sm">
+                        <span className="text-lg">✅</span>
+                        Nombre válido
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="paternalLastName" className="block text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">👨‍👩‍👧‍👦</span>
+                      Apellido Paterno *
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        id="paternalLastName"
+                        value={formData.paternalLastName}
+                        onChange={(e) => handleInputChange('paternalLastName', e.target.value)}
+                        placeholder="Tu apellido paterno"
+                        className="w-full px-6 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-800 placeholder-gray-400 focus:ring-4 focus:ring-blue-400/30 focus:border-blue-500 transition-all duration-300 hover:border-blue-300 pr-12"
+                        required
+                      />
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <span className="text-blue-500 text-xl">👨‍👩‍👧‍👦</span>
+                      </div>
+                    </div>
+                    {formData.paternalLastName && (
+                      <div className="flex items-center gap-2 text-green-600 text-sm">
+                        <span className="text-lg">✅</span>
+                        Apellido paterno válido
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="maternalLastName" className="block text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">👨‍👩‍👧‍👦</span>
+                      Apellido Materno *
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        id="maternalLastName"
+                        value={formData.maternalLastName}
+                        onChange={(e) => handleInputChange('maternalLastName', e.target.value)}
+                        placeholder="Tu apellido materno"
+                        className="w-full px-6 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-800 placeholder-gray-400 focus:ring-4 focus:ring-blue-400/30 focus:border-blue-500 transition-all duration-300 hover:border-blue-300 pr-12"
+                        required
+                      />
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <span className="text-blue-500 text-xl">👨‍👩‍👧‍👦</span>
+                      </div>
+                    </div>
+                    {formData.maternalLastName && (
+                      <div className="flex items-center gap-2 text-green-600 text-sm">
+                        <span className="text-lg">✅</span>
+                        Apellido materno válido
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-3">
@@ -449,6 +568,23 @@ export default function Home() {
                       </label>
                     </div>
                   </div>
+
+                  {/* Mensaje de error de la API */}
+                  {apiError && (
+                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-4 text-center">
+                      <div className="flex items-center justify-center gap-2 text-red-600 mb-2">
+                        <span className="text-2xl">⚠️</span>
+                        <span className="font-semibold">Error de conexión</span>
+                      </div>
+                      <p className="text-red-600 text-sm">{apiError}</p>
+                      <button
+                        onClick={() => setApiError(null)}
+                        className="mt-3 text-red-500 hover:text-red-700 text-sm underline"
+                      >
+                        Cerrar mensaje
+                      </button>
+                    </div>
+                  )}
 
                   <button
                     type="submit"
