@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
+  const [countdown, setCountdown] = useState(4);
   const [formData, setFormData] = useState({
     phone: '',
     email: '',
@@ -14,8 +16,17 @@ export default function Home() {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    // Contador regresivo
+    if (showIntro && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (countdown === 0) {
+      setShowIntro(false);
+      setIsVisible(true);
+    }
+  }, [showIntro, countdown]);
 
   const scrollToForm = () => {
     const formElement = document.getElementById('formulario');
@@ -56,8 +67,96 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+                        {/* Intro 3D Optimizada */}
+                  {showIntro && (
+                    <div className="fixed inset-0 bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 z-50 flex items-center justify-center overflow-hidden animate-slide-up-fade gpu-accelerated">
+          {/* Elementos 3D flotantes optimizados */}
+          <div className="absolute inset-0 smooth-3d">
+            {/* Círculos 3D rotando con diferentes velocidades */}
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-600/30 rounded-full animate-spin-slow animate-float-3d gpu-accelerated"></div>
+            <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-indigo-600/30 rounded-full animate-spin-medium animate-float-3d-reverse gpu-accelerated"></div>
+            <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-slate-600/25 rounded-full animate-ping animate-float-3d-extreme gpu-accelerated"></div>
+            
+            {/* Estrellas brillantes con animaciones escalonadas */}
+            <div className="absolute top-20 left-20 w-2 h-2 bg-blue-700 rounded-full animate-pulse animate-float-3d gpu-accelerated"></div>
+            <div className="absolute top-40 right-32 w-1 h-1 bg-slate-700 rounded-full animate-bounce animate-float-3d-reverse gpu-accelerated"></div>
+            <div className="absolute bottom-32 left-32 w-3 h-3 bg-indigo-700 rounded-full animate-pulse animate-float-3d gpu-accelerated"></div>
+            <div className="absolute bottom-20 right-20 w-2 h-2 bg-blue-600 rounded-full animate-bounce animate-float-3d gpu-accelerated"></div>
+            
+            {/* Partículas adicionales con delays escalonados */}
+            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-slate-700 rounded-full animate-pulse animate-float-3d gpu-accelerated" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-blue-600 rounded-full animate-bounce animate-float-3d-reverse gpu-accelerated" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-2/3 left-1/4 w-1 h-1 bg-indigo-600 rounded-full animate-pulse animate-float-3d gpu-accelerated" style={{ animationDelay: '3s' }}></div>
+            
+            {/* Elementos adicionales para mayor profundidad */}
+            <div className="absolute top-1/6 right-1/6 w-3 h-3 bg-slate-600 rounded-full animate-float-3d gpu-accelerated" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute bottom-1/6 right-1/6 w-2 h-2 bg-blue-600 rounded-full animate-float-3d-reverse gpu-accelerated" style={{ animationDelay: '1.5s' }}></div>
+            
+            {/* Capas de profundidad adicionales */}
+            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full animate-float-3d gpu-accelerated" style={{ animationDelay: '2.5s' }}></div>
+            <div className="absolute top-1/3 right-1/2 w-20 h-20 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full animate-float-3d-reverse gpu-accelerated" style={{ animationDelay: '3.5s' }}></div>
+            
+            {/* Líneas de conexión sutiles */}
+            <div className="absolute top-1/4 left-1/2 w-px h-32 bg-gradient-to-b from-transparent via-slate-600/30 to-transparent animate-pulse"></div>
+            <div className="absolute top-1/2 right-1/4 w-32 h-px bg-gradient-to-r from-transparent via-blue-600/30 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+            
+            {/* Efectos de ondas de sonido */}
+            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-slate-600/40 rounded-full animate-ripple"></div>
+            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-blue-600/40 rounded-full animate-ripple-delayed"></div>
+          </div>
+
+          {/* Contenido principal de la intro optimizado */}
+          <div className="text-center relative z-10 smooth-3d">
+            {/* Logo APOFI 3D DRAMÁTICO */}
+            <div className="mb-12 transform perspective-1000 gpu-accelerated">
+              <div className="animate-logo-3d transform hover:scale-110 transition-all duration-700 ease-out gpu-accelerated">
+                <img 
+                  src="/apofi_logo.svg" 
+                  alt="APOFI Logo" 
+                  className="w-96 md:w-[500px] h-auto logo-glow"
+                />
+              </div>
+            </div>
+
+            {/* Mensaje principal con efecto 3D optimizado */}
+            <div className="space-y-8 transform perspective-1000 smooth-3d">
+                                        <div className="transform rotate-y-12 hover:rotate-y-0 gpu-accelerated">
+                            <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight">
+                              <span className="block transform translate-z-20 gpu-accelerated animate-text-depth">En convenio con</span>
+                              <span className="block text-blue-700 transform translate-z-40 gpu-accelerated animate-text-depth" style={{ animationDelay: '0.5s' }}>MAXILLARIS</span>
+                            </h1>
+                          </div>
+
+                          <div className="transform rotate-y-12 hover:rotate-y-0 gpu-accelerated">
+                            <p className="text-3xl md:text-5xl text-slate-700 mb-8">
+                              <span className="block animate-text-depth">Te regala</span>
+                              <span className="block text-4xl md:text-6xl font-bold text-blue-700 transform translate-z-30 gpu-accelerated animate-text-depth" style={{ animationDelay: '1s' }}>
+                                82% de descuento
+                              </span>
+                            </p>
+                          </div>
+
+              {/* Botón de skip optimizado */}
+              <div className="transform rotate-y-12 hover:rotate-y-0 gpu-accelerated">
+                                            <button
+                              onClick={() => {
+                                setShowIntro(false);
+                                setIsVisible(true);
+                              }}
+                              className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white font-bold px-8 py-4 rounded-2xl hover:shadow-2xl transform hover:scale-110 transition-all duration-500 ease-out gpu-accelerated animate-pulse"
+                            >
+                              🚀 Ver landing page
+                            </button>
+              </div>
+            </div>
+
+            {/* Contador regresivo */}
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-16">
+      <section className={`min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-16 transition-all duration-1000 ${!showIntro ? 'animate-slide-up-fade' : 'opacity-0'}`}>
         {/* Fondos animados */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-indigo-400/10 to-slate-400/10"></div>
@@ -83,7 +182,9 @@ export default function Home() {
             </h1>
             
             <p className={`text-xl md:text-2xl text-white/90 mb-10 leading-relaxed transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Gana uno de los <strong className="text-blue-300">3 Bonos de S/ 3,500</strong> para tu especialización dental
+              <strong className="text-blue-300">Maxillaris en convenio con APOFI</strong> te ofrece ganar uno de los{' '}
+              <strong className="text-yellow-300">5 bonos</strong> con{' '}
+              <strong className="text-yellow-300">82% de descuento</strong> en tu tratamiento
             </p>
             
             <div className={`space-y-6 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -212,7 +313,7 @@ export default function Home() {
               ¡Participa ahora!
             </h2>
             <p className="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Completa el formulario y participa por uno de los <strong className="text-blue-600">3 bonos de S/ 3,500</strong> para tu especialización dental
+              Completa el formulario y participa por uno de los <strong className="text-blue-600">5 bonos con 82% de descuento</strong> en tu tratamiento dental
             </p>
           </div>
 
@@ -225,7 +326,7 @@ export default function Home() {
                 ¡Participación confirmada!
               </h3>
               <p className="text-gray-600 text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
-                Tu participación ha sido registrada exitosamente. Te notificaremos los resultados el 24 de marzo.
+                Tu participación ha sido registrada exitosamente. Te notificaremos los resultados por WhatsApp y correo electrónico.
               </p>
               <button
                 onClick={resetForm}
@@ -376,15 +477,17 @@ export default function Home() {
                   <div className="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                       <span className="text-3xl animate-pulse">💎</span>
-                      Beneficios del Bono
+                      ¿Qué incluye tu bono?
                     </h3>
                     <div className="space-y-4">
                       {[
-                        'Aplicable a cualquier especialización',
+                        '82% de descuento en tu tratamiento',
+                        'Aparato incluido (no lo pagas)',
+                        'Controles incluidos',
                         'Válido por 6 meses',
+                        'Consulta de evaluación incluida',
                         'Sin restricciones ocultas',
-                        'Transferible a familiares',
-                        'Incluye consulta de evaluación'
+                        'No transferible a familiares'
                       ].map((benefit, index) => (
                         <div key={index} className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                           <span className="text-2xl animate-bounce">✅</span>
@@ -397,22 +500,22 @@ export default function Home() {
                   {/* Estadísticas animadas */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white rounded-2xl p-6 text-center shadow-lg border border-blue-100 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                      <div className="text-4xl font-bold text-blue-600 mb-2 animate-pulse">3</div>
+                      <div className="text-4xl font-bold text-blue-600 mb-2 animate-pulse">5</div>
                       <p className="text-gray-600">Bonos disponibles</p>
                     </div>
                     <div className="bg-white rounded-2xl p-6 text-center shadow-lg border border-blue-100 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                      <div className="text-4xl font-bold text-blue-600 mb-2 animate-pulse">S/ 3,500</div>
-                      <p className="text-gray-600">Valor de cada bono</p>
+                      <div className="text-4xl font-bold text-blue-600 mb-2 animate-pulse">82%</div>
+                      <p className="text-gray-600">Descuento incluido</p>
                     </div>
                   </div>
 
                   {/* CTA adicional */}
                   <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl p-6 text-white text-center shadow-xl transform hover:scale-105 transition-all duration-300">
-                    <h4 className="text-xl font-bold mb-3">¿Por qué APOFI?</h4>
+                    <h4 className="text-xl font-bold mb-3">🏥 Convenio Maxillaris-APOFI</h4>
                     <p className="text-indigo-100 mb-4">
-                      Somos la escuela líder en especialización odontológica con más de 10 años de experiencia
+                      Clínica Maxillaris en convenio con APOFI te ofrece esta oportunidad única de acceder a tratamientos de alta calidad
                     </p>
-                    <div className="text-3xl animate-bounce">🏆</div>
+                    <div className="text-3xl animate-bounce">🤝</div>
                   </div>
 
                   {/* Contador regresivo */}
@@ -430,6 +533,25 @@ export default function Home() {
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="text-2xl font-bold">2025</div>
                         <div className="text-sm">Año</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Proceso del sorteo */}
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl p-6 text-white text-center shadow-xl">
+                    <h4 className="text-xl font-bold mb-3">📋 ¿Cómo funciona?</h4>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center gap-2 justify-center">
+                        <span className="text-lg">1️⃣</span>
+                        <span>Participas en el sorteo</span>
+                      </div>
+                      <div className="flex items-center gap-2 justify-center">
+                        <span className="text-lg">2️⃣</span>
+                        <span>Si ganas, pasas evaluación</span>
+                      </div>
+                      <div className="flex items-center gap-2 justify-center">
+                        <span className="text-lg">3️⃣</span>
+                        <span>Obtienes tu bono del 82%</span>
                       </div>
                     </div>
                   </div>
@@ -520,7 +642,7 @@ export default function Home() {
               </h2>
               
               <p className="text-xl md:text-2xl text-blue-200 max-w-2xl mx-auto leading-relaxed">
-                En breve recibirás un mensaje de confirmación por WhatsApp
+                En breve recibirás un mensaje de confirmación por WhatsApp y correo electrónico
               </p>
               
               <div className="flex items-center justify-center gap-3 text-blue-300 text-lg">

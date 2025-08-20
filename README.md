@@ -207,7 +207,7 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 ## 📞 Contacto
 
 - **APOFI**: [info@apofi.com](mailto:info@apofi.com)
-- **Desarrollador**: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+- **Desarrollador**: [jjeampierjs97@gmail.com](mailto:jjeampierjs97@gmail.com)
 
 ---
 
