@@ -1,36 +1,214 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 Sorteo con Propósito - APOFI Landing Page
 
-## Getting Started
+Una landing page profesional y moderna para el sorteo odontológico "Sorteo con Propósito" de APOFI, construida con Next.js 15, TypeScript y TailwindCSS.
 
-First, run the development server:
+## ✨ Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 15 con App Router
+- **Lenguaje**: TypeScript
+- **Estilos**: TailwindCSS v3
+- **Animaciones**: Framer Motion + CSS Animations
+- **Íconos**: Lucide React + Emojis
+- **SEO**: Configurado con metadata nativo
+- **Responsive**: Mobile-first design
+- **Optimizado**: Para conversión y SEO
+- **Páginas**: Landing principal + Términos y condiciones
+- **Formulario**: Completamente funcional con validaciones
+
+## 🚀 Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone <repository-url>
+   cd maxillaris-landing
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar en desarrollo**
+   ```bash
+   npm run dev
+   ```
+
+4. **Abrir en el navegador**
+   ```
+   http://localhost:3000
+   ```
+
+## 🏗️ Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Layout principal con SEO
+│   ├── page.tsx            # Página principal
+│   └── globals.css         # Estilos globales
+├── components/              # Componentes reutilizables
+│   ├── Hero.tsx            # Sección hero principal
+│   ├── Steps.tsx           # Pasos para participar
+│   ├── Form.tsx            # Formulario de participación
+│   ├── Dates.tsx           # Fechas del sorteo
+│   ├── Bonus.tsx           # Explicación del bono
+│   ├── Purpose.tsx         # Propósito del sorteo
+│   └── Footer.tsx          # Pie de página
+└── next-seo.config.ts      # Configuración de SEO
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Componentes Principales
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Hero Section
+- Título principal con animaciones
+- Botón CTA "Participar ahora"
+- Scroll suave al formulario
+- Diseño responsivo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Steps Section
+- 3 pasos para participar
+- Íconos de Lucide React
+- Animaciones de entrada
+- Tarjetas interactivas
 
-## Learn More
+### Form Section
+- Formulario de participación
+- Validaciones en tiempo real
+- Campos: celular, email, términos
+- Estados de envío y confirmación
 
-To learn more about Next.js, take a look at the following resources:
+### Dates Section
+- Fecha del sorteo (24 de marzo 2025)
+- Enlace a Facebook para resultados
+- Información adicional del sorteo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Bonus Section
+- Explicación del bono de S/ 3,500
+- Beneficios y características
+- Diseño visual atractivo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Purpose Section
+- Sección emocional
+- Estadísticas de la clínica
+- Testimonios
+- CTA final
 
-## Deploy on Vercel
+### Footer
+- Información de contacto
+- Redes sociales
+- Enlaces útiles
+- CTA adicional
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Características de Diseño
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Paleta de colores**: Azules, cian, verdes y acentos
+- **Tipografía**: Inter (font-sans)
+- **Sombras**: Suaves y elegantes
+- **Bordes**: Redondeados (rounded-2xl)
+- **Gradientes**: Azul a cian
+- **Espaciado**: Consistente con Tailwind
+
+## 📱 Responsive Design
+
+- **Mobile-first**: Diseño optimizado para móviles
+- **Breakpoints**: sm, md, lg, xl
+- **Grid**: CSS Grid y Flexbox
+- **Imágenes**: Adaptativas y optimizadas
+
+## 🔧 Scripts Disponibles
+
+```bash
+npm run dev      # Desarrollo con Turbopack
+npm run build    # Build de producción
+npm run start    # Servidor de producción
+npm run lint     # Linting con ESLint
+```
+
+## 🌐 SEO y Metadatos
+
+- **next-seo**: Configuración completa
+- **Open Graph**: Para redes sociales
+- **Twitter Cards**: Optimizado para Twitter
+- **Meta tags**: Keywords y descripción
+- **Canonical URLs**: Para evitar duplicados
+
+## 🎭 Animaciones
+
+- **Framer Motion**: Transiciones suaves
+- **Entrada**: Animaciones de entrada en scroll
+- **Hover**: Efectos en botones y tarjetas
+- **Scroll**: Animaciones basadas en viewport
+
+## 📊 Funcionalidades
+
+- **Formulario**: Validación y envío
+- **Scroll suave**: Navegación interna
+- **Responsive**: Adaptable a todos los dispositivos
+- **Accesibilidad**: ARIA labels y navegación por teclado
+
+## 🚀 Despliegue
+
+### Vercel (Recomendado)
+```bash
+npm run build
+vercel --prod
+```
+
+### Netlify
+```bash
+npm run build
+# Subir carpeta .next a Netlify
+```
+
+### Docker
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+## 🔒 Variables de Entorno
+
+Crear archivo `.env.local`:
+```env
+NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
+NEXT_PUBLIC_FACEBOOK_URL=https://facebook.com/maxillaris
+NEXT_PUBLIC_WHATSAPP_NUMBER=51912345678
+```
+
+## 📝 Personalización
+
+### Cambiar Colores
+Editar `tailwind.config.js` o usar clases personalizadas en `globals.css`
+
+### Modificar Contenido
+Actualizar textos en cada componente según necesidades
+
+### Agregar Funcionalidades
+Implementar nuevas secciones o componentes siguiendo la estructura existente
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crear rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit cambios (`git commit -m 'Add AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abrir Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+
+## 📞 Contacto
+
+- **APOFI**: [info@apofi.com](mailto:info@apofi.com)
+- **Desarrollador**: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+
+---
+
+⭐ Si este proyecto te ayuda, ¡déjale una estrella!
