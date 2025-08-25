@@ -615,15 +615,15 @@ export default function Home() {
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center gap-2 justify-center">
                         <span className="text-lg">1️⃣</span>
-                        <span>Participas en el sorteo</span>
+                        <span>Registrate en el sorteo</span>
                       </div>
                       <div className="flex items-center gap-2 justify-center">
                         <span className="text-lg">2️⃣</span>
-                        <span>Si ganas, pasas evaluación</span>
+                        <span>Si ganas, nos comunicamos contigo</span>
                       </div>
                       <div className="flex items-center gap-2 justify-center">
                         <span className="text-lg">3️⃣</span>
-                        <span>Obtienes tu bono de 3,500 soles</span>
+                        <span>Obtienes tu bono de 3500 soles para iniciar Tratamiento</span>
                       </div>
                     </div>
                   </div>
@@ -653,8 +653,8 @@ export default function Home() {
             <div className="space-y-4">
               <h4 className="text-xl font-semibold text-gray-800 mb-4">Contacto</h4>
               <div className="space-y-2 text-gray-600">
-                <a href="https://wa.me/51940225052" target="_blank" rel="noopener noreferrer" className="block hover:text-green-400 transition-colors">
-                  📞 +51 940 225 052
+                <a href="https://wa.me/51967556199" target="_blank" rel="noopener noreferrer" className="block hover:text-green-400 transition-colors">
+                  📞 +51 967 556 199
                 </a>
                 <p>📧 info@maxillaris.com</p>
                 <p>📍 Lima, Perú</p>
@@ -665,7 +665,7 @@ export default function Home() {
               <h4 className="text-xl font-semibold text-gray-800 mb-4">Redes Sociales</h4>
               <div className="grid grid-cols-2 gap-3">
                 <a 
-                  href="https://www.facebook.com/maxillaris" 
+                  href="https://www.facebook.com/people/Maxillaris-Odontolog%C3%ADa-Funcional-e-Integrativa/100083483763419/?mibextid=ZbWKwL" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-600 hover:text-blue-400 transition-colors group"
@@ -674,13 +674,13 @@ export default function Home() {
                   <span className="text-sm group-hover:text-blue-400">Facebook</span>
                 </a>
                 <a 
-                  href="https://www.instagram.com/maxillaris" 
+                  href="https://www.instagram.com/maxillarisperu/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-600 hover:text-pink-400 transition-colors group"
                 >
                   <span className="text-xl">📷</span>
-                  <span className="text-sm group-hover:text-pink-400">@maxillaris</span>
+                  <span className="text-sm group-hover:text-pink-400">@maxillarisperu</span>
                 </a>
                 <a 
                   href="https://www.tiktok.com/@maxillaris" 
@@ -692,7 +692,7 @@ export default function Home() {
                   <span className="text-sm group-hover:text-cyan-400">@maxillaris</span>
                 </a>
                 <a 
-                  href="https://wa.me/51940225052" 
+                  href="https://wa.me/51967556199" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-600 hover:text-green-400 transition-colors group"
@@ -748,7 +748,7 @@ export default function Home() {
               
               <div className="flex items-center justify-center gap-3 text-primary-600 text-lg">
                 <span className="text-2xl">💬</span>
-                <span>WhatsApp: +51 940 225 052</span>
+                <span>WhatsApp: +51 967 556 199</span>
               </div>
               
               {/* Elementos decorativos flotantes */}
