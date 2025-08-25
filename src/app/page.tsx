@@ -233,7 +233,7 @@ export default function Home() {
                               <div className="flex items-center justify-center lg:justify-start gap-4 text-gray-600">
                   <div className="flex items-center gap-2">
                     <span className="text-primary-500 text-2xl">⏰</span>
-                    <span className="text-sm">Lunes 24 de Marzo a la 1:00 p.m.</span>
+                    <span className="text-sm">Martes 26 de Agosto a la 1:00 p.m.</span>
                   </div>
                 </div>
             </div>
@@ -591,13 +591,13 @@ export default function Home() {
 
                   {/* Contador regresivo */}
                   <div className="bg-gradient-to-r from-red-500 to-pink-600 rounded-3xl p-6 text-white text-center shadow-xl">
-                    <h4 className="text-xl font-bold mb-3">⏰ Sorteo: Lunes 24 de Marzo a la 1:00 p.m.</h4>
+                    <h4 className="text-xl font-bold mb-3">⏰ Sorteo: Martes 26 de Agosto a la 1:00 p.m.</h4>
                     <p className="text-sm mb-3">Los resultados serán publicados en nuestro Fanpage Maxillaris.</p>
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                      <div className="bg-white/20 rounded-lg p-3">
-                        <div className="text-2xl font-bold">24</div>
-                        <div className="text-sm">Marzo</div>
-                      </div>
+                                          <div className="grid grid-cols-3 gap-2 text-center">
+                        <div className="bg-white/20 rounded-lg p-3">
+                          <div className="text-2xl font-bold">26</div>
+                          <div className="text-sm">Agosto</div>
+                        </div>
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="text-2xl font-bold">1:00</div>
                         <div className="text-sm">PM</div>
