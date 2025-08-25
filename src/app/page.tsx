@@ -674,7 +674,7 @@ export default function Home() {
                   </div>
 
                   {/* Proceso del sorteo */}
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl p-6 text-white text-center shadow-xl">
+                  <div className="bg-gradient-to-r from-primary-500 to-secondary-600 rounded-3xl p-6 text-white text-center shadow-xl">
                     <h4 className="text-xl font-bold mb-3">📋 ¿Cómo funciona?</h4>
                     <div className="space-y-3 text-sm">
                       <div className="flex items-center gap-2 justify-center">
