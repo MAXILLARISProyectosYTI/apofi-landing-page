@@ -238,16 +238,16 @@
 /* Efectos de brillo para el logo */
 .logo-glow {
   filter: drop-shadow(0 0 25px rgba(225, 140, 191, 0.8)) 
-          drop-shadow(0 0 50px rgba(236, 72, 153, 0.6))
+          drop-shadow(0 0 50px rgba(168, 85, 247, 0.6))
           drop-shadow(0 0 75px rgba(225, 140, 191, 0.4))
-          drop-shadow(0 0 100px rgba(236, 72, 153, 0.3));
+          drop-shadow(0 0 100px rgba(168, 85, 247, 0.3));
 }
 
 .logo-glow:hover {
   filter: drop-shadow(0 0 35px rgba(225, 140, 191, 1)) 
-          drop-shadow(0 0 70px rgba(236, 72, 153, 0.8))
+          drop-shadow(0 0 70px rgba(168, 85, 247, 0.8))
           drop-shadow(0 0 105px rgba(225, 140, 191, 0.6))
-          drop-shadow(0 0 140px rgba(236, 72, 153, 0.4));
+          drop-shadow(0 0 140px rgba(168, 85, 247, 0.4));
 }
 
 /* Efecto de profundidad para texto 3D */
