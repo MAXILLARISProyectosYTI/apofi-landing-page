@@ -18,7 +18,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
   }
   
   .btn-secondary {
@@ -40,11 +40,11 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
   }
   
   .bg-gradient-primary {
-    @apply bg-gradient-to-br from-blue-50 via-white to-cyan-50;
+    @apply bg-gradient-to-br from-primary-50 via-white to-secondary-50;
   }
   
   .shadow-soft {
@@ -237,28 +237,28 @@
 
 /* Efectos de brillo para el logo */
 .logo-glow {
-  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.8)) 
-          drop-shadow(0 0 50px rgba(99, 102, 241, 0.6))
-          drop-shadow(0 0 75px rgba(30, 64, 175, 0.4))
-          drop-shadow(0 0 100px rgba(15, 23, 42, 0.3));
+  filter: drop-shadow(0 0 25px rgba(225, 140, 191, 0.8)) 
+          drop-shadow(0 0 50px rgba(236, 72, 153, 0.6))
+          drop-shadow(0 0 75px rgba(225, 140, 191, 0.4))
+          drop-shadow(0 0 100px rgba(236, 72, 153, 0.3));
 }
 
 .logo-glow:hover {
-  filter: drop-shadow(0 0 35px rgba(59, 130, 246, 1)) 
-          drop-shadow(0 0 70px rgba(99, 102, 241, 0.8))
-          drop-shadow(0 0 105px rgba(30, 64, 175, 0.6))
-          drop-shadow(0 0 140px rgba(15, 23, 42, 0.4));
+  filter: drop-shadow(0 0 35px rgba(225, 140, 191, 1)) 
+          drop-shadow(0 0 70px rgba(236, 72, 153, 0.8))
+          drop-shadow(0 0 105px rgba(225, 140, 191, 0.6))
+          drop-shadow(0 0 140px rgba(236, 72, 153, 0.4));
 }
 
 /* Efecto de profundidad para texto 3D */
 @keyframes text-depth {
   0%, 100% {
     transform: translateZ(0px);
-    text-shadow: 0 0 0px rgb(59, 131, 246);
+    text-shadow: 0 0 0px rgb(225, 140, 191);
   }
   50% {
     transform: translateZ(50px);
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    text-shadow: 0 0 20px rgba(225, 140, 191, 0.8);
   }
 }
 
