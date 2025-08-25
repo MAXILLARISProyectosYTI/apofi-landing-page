@@ -69,7 +69,7 @@ export default function AdminPage() {
   const fetchRegistrations = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns');
+      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns/maxillaris-august-2025');
       
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);

@@ -1,6 +1,6 @@
-# 🎉 Sorteo con Propósito - APOFI Landing Page
+# 🎉 Sorteo Único - Maxillaris Landing Page
 
-Una landing page profesional y moderna para el sorteo odontológico "Sorteo con Propósito" de APOFI, construida con Next.js 15, TypeScript y TailwindCSS.
+Una landing page profesional y moderna para el sorteo odontológico "Sorteo Único" de Maxillaris, construida con Next.js 15, TypeScript y TailwindCSS.
 
 ## ✨ Características
 
@@ -13,7 +13,7 @@ Una landing page profesional y moderna para el sorteo odontológico "Sorteo con 
 - **Responsive**: Mobile-first design
 - **Optimizado**: Para conversión y SEO
 - **Páginas**: Landing principal + Términos y condiciones
-- **Formulario**: Completamente funcional con validaciones
+- **Formulario**: Completamente funcional con validaciones (nombre, celular, email)
 
 ## 🚀 Instalación
 
@@ -74,7 +74,7 @@ src/
 ### Form Section
 - Formulario de participación
 - Validaciones en tiempo real
-- Campos: celular, email, términos
+- Campos: nombre, celular, email, términos
 - Estados de envío y confirmación
 
 ### Dates Section
@@ -84,7 +84,7 @@ src/
 
 ### Bonus Section
 - Explicación del bono de S/ 3,500
-- Beneficios y características
+- Información sobre el propósito del sorteo
 - Diseño visual atractivo
 
 ### Purpose Section
@@ -206,7 +206,7 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ## 📞 Contacto
 
-- **APOFI**: [info@apofi.com](mailto:info@apofi.com)
+- **Maxillaris**: [info@maxillaris.com](mailto:info@maxillaris.com)
 - **Desarrollador**: [jjeampierjs97@gmail.com](mailto:jjeampierjs97@gmail.com)
 
 ---
