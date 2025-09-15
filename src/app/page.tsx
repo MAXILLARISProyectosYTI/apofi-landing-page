@@ -63,7 +63,7 @@ export default function Home() {
       console.log('Enviando datos a la API:', apiData);
 
       // Enviar datos a la API de Maxillaris
-      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns/maxillaris-august-2025', {
+      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns/maxillaris-set-2025', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ export default function Home() {
 
           {/* Contenido principal de la intro optimizado */}
           <div className="text-center relative z-10 smooth-3d">
-            {/* Logo APOFI 3D DRAMÁTICO */}
+            {/* Logo MAXILLARIS 3D DRAMÁTICO */}
             <div className="mb-12 transform perspective-1000 gpu-accelerated">
               <div className="animate-logo-3d transform hover:scale-110 transition-all duration-700 ease-out gpu-accelerated">
                 <img 
@@ -655,12 +655,12 @@ export default function Home() {
 
                   {/* Contador regresivo */}
                   <div className="bg-gradient-to-r from-red-500 to-pink-600 rounded-3xl p-6 text-white text-center shadow-xl">
-                    <h4 className="text-xl font-bold mb-3">⏰ Sorteo: Martes 26 de Agosto a la 1:00 p.m.</h4>
+                    <h4 className="text-xl font-bold mb-3">⏰ Sorteo: Miercoles 17 de Septiembre a la 1:00 p.m.</h4>
                     <p className="text-sm mb-3">Los resultados serán publicados en nuestro Fanpage Maxillaris.</p>
                                           <div className="grid grid-cols-3 gap-2 text-center">
                         <div className="bg-white/20 rounded-lg p-3">
-                          <div className="text-2xl font-bold">26</div>
-                          <div className="text-sm">Agosto</div>
+                          <div className="text-2xl font-bold">17</div>
+                          <div className="text-sm">Septiembre</div>
                         </div>
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="text-2xl font-bold">1:00</div>
@@ -788,7 +788,7 @@ export default function Home() {
       {/* Animación de confirmación completa */}
       {showConfirmation && (
         <div className="fixed inset-0 bg-gradient-to-br from-primary-100 via-secondary-100 to-primary-50 z-50 flex items-center justify-center">
-          {/* Logo APOFI animado */}
+          {/* Logo MAXILLARIS animado */}
                       <div className="text-center">
               <div className="mb-8">
                 <div className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-primary-300 to-secondary-300 bg-clip-text text-transparent animate-pulse">

@@ -17,7 +17,7 @@ export default function Terminos() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
-              APOFI
+              Maxillaris
             </Link>
             <Link 
               href="/"
@@ -37,7 +37,7 @@ export default function Terminos() {
               Términos y Condiciones
             </h1>
             <p className="text-xl text-gray-600">
-              Sorteo con Propósito - APOFI
+              Sorteo con Propósito - Maxillaris
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Información General</h2>
                               <p className="leading-relaxed">
                   El presente documento establece los términos y condiciones del sorteo &ldquo;Sorteo con Propósito&rdquo; 
-                  organizado por APOFI (Escuela de Especialización Odontológica), con domicilio en Lima, Perú.
+                  organizado por MAXILLARIS (Centro Odontológico Especializado), con domicilio en Lima, Perú.
                 </p>
             </section>
 
@@ -54,7 +54,7 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Objetivo del Sorteo</h2>
               <p className="leading-relaxed">
                 El sorteo tiene como objetivo otorgar 3 bonos de S/ 3,500 para especializaciones odontológicas 
-                en APOFI, con el propósito de apoyar a profesionales de la odontología en su desarrollo profesional.
+                en MAXILLARIS, con el propósito de apoyar a profesionales de la odontología en su desarrollo profesional.
               </p>
             </section>
 
@@ -62,12 +62,11 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Participación</h2>
               <div className="space-y-3">
                 <p className="leading-relaxed">
-                  <strong>3.1 Requisitos:</strong> Podrán participar odontólogos titulados y estudiantes de último año 
-                  de odontología que cumplan con los requisitos establecidos.
+                  <strong>3.1 Requisitos:</strong> Podrán participar solo pacientes registrados en Maxillaris.
                 </p>
                 <p className="leading-relaxed">
                   <strong>3.2 Registro:</strong> La participación se realiza únicamente a través del formulario 
-                  oficial en la página web de APOFI.
+                  oficial en la página web de MAXILLARIS.
                 </p>
                 <p className="leading-relaxed">
                   <strong>3.3 Datos:</strong> Los participantes deben proporcionar información veraz y actualizada.
@@ -83,7 +82,7 @@ export default function Terminos() {
                 </p>
                 <p className="leading-relaxed">
                   <strong>4.2 Aplicación:</strong> Los bonos son aplicables a tratamientos de ortopedia funcional 
-                  ofrecidos por APOFI en convenio con Clínica Maxillaris.
+                  ofrecidos por MAXILLARIS en convenio con Clínica Maxillaris.
                 </p>
                 <p className="leading-relaxed">
                   <strong>4.3 Validez:</strong> Los bonos tienen una validez de 6 meses desde la fecha de inscripción en el sorteo.
@@ -196,10 +195,10 @@ export default function Terminos() {
                   <strong>6.1 Inscripción:</strong> Desde el momento de registro hasta el 25 de agosto de 2025.
                 </p>
                 <p className="leading-relaxed">
-                  <strong>6.2 Sorteo:</strong> Domingo 25 de agosto de 2025 a las 11:59 hrs. (Hora de Perú).
+                  <strong>6.2 Sorteo:</strong> Miercoles 17 de septiembre del 2025 a las 13:00 hrs. (Hora de Perú).
                 </p>
                 <p className="leading-relaxed">
-                  <strong>6.3 Resultados:</strong> Se publicarán en el Fanpage oficial de APOFI.
+                  <strong>6.3 Resultados:</strong> Se publicarán en el Fanpage oficial de MAXILLARIS.
                 </p>
                 <p className="leading-relaxed">
                   <strong>6.4 Inicio del beneficio:</strong> El descuento aplica desde el día de inscripción en el sorteo.
@@ -241,7 +240,7 @@ export default function Terminos() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Privacidad</h2>
               <p className="leading-relaxed">
-                APOFI se compromete a proteger la privacidad de los participantes. Los datos personales 
+                MAXILLARIS se compromete a proteger la privacidad de los participantes. Los datos personales 
                 serán utilizados únicamente para fines del sorteo y no serán compartidos con terceros.
               </p>
             </section>
@@ -249,7 +248,7 @@ export default function Terminos() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Modificaciones</h2>
               <p className="leading-relaxed">
-                APOFI se reserva el derecho de modificar estos términos y condiciones en cualquier momento, 
+                MAXILLARIS se reserva el derecho de modificar estos términos y condiciones en cualquier momento, 
                 notificando los cambios a través de la página web oficial.
               </p>
             </section>
@@ -258,10 +257,10 @@ export default function Terminos() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Contacto</h2>
               <div className="space-y-2">
                 <p className="leading-relaxed">
-                  <strong>APOFI - Escuela de Especialización Odontológica</strong>
+                  <strong>MAXILLARIS - Centro Odontológico Especializado</strong>
                 </p>
-                <p className="leading-relaxed">📞 +51 940 225 052</p>
-                <p className="leading-relaxed">📧 info@apofi.com</p>
+                <p className="leading-relaxed">📞 +51 967 556 199</p>
+                <p className="leading-relaxed">📧 informes@maxillaris.pe</p>
                 <p className="leading-relaxed">📍 Lima, Perú</p>
               </div>
             </section>

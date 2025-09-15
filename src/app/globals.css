@@ -213,7 +213,7 @@
   }
 }
 
-/* Animación 3D DRAMÁTICA para el logo APOFI */
+/* Animación 3D DRAMÁTICA para el logo MAXILLARIS */
 @keyframes logo-3d-float {
   0%, 100% {
     transform: translateZ(0px) translateY(0px) rotateY(0deg) scale(1);

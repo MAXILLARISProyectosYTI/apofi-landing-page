@@ -69,7 +69,7 @@ export default function AdminPage() {
   const fetchRegistrations = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns/maxillaris-august-2025');
+      const response = await fetch('https://www.support.maxillaris.pe/api6/campaigns/maxillaris-set-2025');
       
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
@@ -291,7 +291,7 @@ export default function AdminPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">🔐 Panel de Administración</h1>
-              <p className="text-gray-600 mt-1">Registros de la Campaña APOFI-Maxillaris</p>
+              <p className="text-gray-600 mt-1">Registros de la Campaña MAXILLARIS-Maxillaris</p>
             </div>
             <div className="flex items-center gap-4">
               <button
