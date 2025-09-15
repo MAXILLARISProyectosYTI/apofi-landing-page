@@ -10,6 +10,7 @@ interface CampaignRegistration {
   lastNameFather: string;
   lastNameMother: string;
   phoneNumber: string;
+  sede: string;
   email: string;
   sendEmail: boolean;
   sendEmailAt: string | null;
@@ -101,7 +102,8 @@ export default function AdminPage() {
       reg.lastNameFather.toLowerCase().includes(searchTerm.toLowerCase()) ||
       reg.lastNameMother.toLowerCase().includes(searchTerm.toLowerCase()) ||
       reg.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      reg.phoneNumber.includes(searchTerm)
+      reg.phoneNumber.includes(searchTerm) ||
+      reg.sede.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
       const aValue = a[sortBy];
@@ -133,6 +135,7 @@ export default function AdminPage() {
       'Apellido Paterno',
       'Apellido Materno',
       'Teléfono',
+      'Sede',
       'Email',
       'Email Enviado',
       'Fecha Email',
@@ -150,6 +153,7 @@ export default function AdminPage() {
         reg.lastNameFather,
         reg.lastNameMother,
         reg.phoneNumber,
+        reg.sede,
         reg.email,
         reg.sendEmail ? 'Sí' : 'No',
         reg.sendEmailAt || '',
@@ -319,7 +323,7 @@ export default function AdminPage() {
 
       {/* Stats */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6 border">
             <div className="flex items-center">
               <div className="p-2 bg-blue-100 rounded-lg">
@@ -375,6 +379,27 @@ export default function AdminPage() {
               </div>
             </div>
           </div>
+
+          <div className="bg-white rounded-xl shadow-sm p-6 border">
+            <div className="flex items-center">
+              <div className="p-2 bg-indigo-100 rounded-lg">
+                <span className="text-2xl">📍</span>
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-600">Sedes</p>
+                <div className="text-sm text-gray-900 space-y-1">
+                  <div className="flex justify-between">
+                    <span>Lima:</span>
+                    <span className="font-bold">{registrations.filter(r => r.sede === 'LIMA').length}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Arequipa:</span>
+                    <span className="font-bold">{registrations.filter(r => r.sede === 'AREQUIPA').length}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Search and Filters */}
@@ -389,7 +414,7 @@ export default function AdminPage() {
                 id="search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Buscar por nombre, email, teléfono..."
+                placeholder="Buscar por nombre, email, teléfono, sede..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
@@ -445,6 +470,14 @@ export default function AdminPage() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Teléfono
                   </th>
+                  <th 
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                    onClick={() => handleSort('sede')}
+                  >
+                    <div className="flex items-center gap-2">
+                      Sede {sortBy === 'sede' && (sortOrder === 'asc' ? '↑' : '↓')}
+                    </div>
+                  </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Email
                   </th>
@@ -481,6 +514,13 @@ export default function AdminPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {registration.phoneNumber}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        registration.sede === 'LIMA' ? 'text-blue-800 bg-blue-100' : 'text-purple-800 bg-purple-100'
+                      }`}>
+                        📍 {registration.sede}
+                      </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <a 

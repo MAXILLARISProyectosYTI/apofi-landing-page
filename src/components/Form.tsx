@@ -2,24 +2,36 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, Mail, Shield } from 'lucide-react';
+import { Send, Phone, Mail, Shield, User, MapPin } from 'lucide-react';
 
 interface FormData {
-  phone: string;
+  firstName: string;
+  lastNameFather: string;
+  lastNameMother: string;
+  phoneNumber: string;
   email: string;
+  sede: 'LIMA' | 'AREQUIPA';
   acceptTerms: boolean;
 }
 
 interface FormErrors {
-  phone?: string;
+  firstName?: string;
+  lastNameFather?: string;
+  lastNameMother?: string;
+  phoneNumber?: string;
   email?: string;
+  sede?: string;
   acceptTerms?: string;
 }
 
 export default function Form() {
   const [formData, setFormData] = useState<FormData>({
-    phone: '',
+    firstName: '',
+    lastNameFather: '',
+    lastNameMother: '',
+    phoneNumber: '',
     email: '',
+    sede: 'LIMA',
     acceptTerms: false
   });
 
@@ -30,16 +42,32 @@ export default function Form() {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'El número de celular es obligatorio';
-    } else if (!/^9\d{8}$/.test(formData.phone.replace(/\s/g, ''))) {
-      newErrors.phone = 'Ingresa un número de celular válido (9 dígitos)';
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'El nombre es obligatorio';
+    }
+
+    if (!formData.lastNameFather.trim()) {
+      newErrors.lastNameFather = 'El apellido paterno es obligatorio';
+    }
+
+    if (!formData.lastNameMother.trim()) {
+      newErrors.lastNameMother = 'El apellido materno es obligatorio';
+    }
+
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'El número de celular es obligatorio';
+    } else if (!/^9\d{8}$/.test(formData.phoneNumber.replace(/\s/g, ''))) {
+      newErrors.phoneNumber = 'Ingresa un número de celular válido (9 dígitos)';
     }
 
     if (!formData.email.trim()) {
       newErrors.email = 'El correo electrónico es obligatorio';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Ingresa un correo electrónico válido';
+    }
+
+    if (!formData.sede) {
+      newErrors.sede = 'Debes seleccionar una sede';
     }
 
     if (!formData.acceptTerms) {
@@ -95,7 +123,15 @@ export default function Form() {
           <button
             onClick={() => {
               setIsSubmitted(false);
-              setFormData({ phone: '', email: '', acceptTerms: false });
+              setFormData({ 
+                firstName: '',
+                lastNameFather: '',
+                lastNameMother: '',
+                phoneNumber: '',
+                email: '',
+                sede: 'LIMA',
+                acceptTerms: false
+              });
             }}
             className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
@@ -132,24 +168,90 @@ export default function Form() {
           className="bg-white rounded-2xl shadow-xl p-8 md:p-10"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Campo Nombre */}
+            <div>
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                <User className="inline w-4 h-4 mr-2" />
+                Nombre *
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                value={formData.firstName}
+                onChange={(e) => handleInputChange('firstName', e.target.value)}
+                placeholder="Tu nombre"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                  errors.firstName ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                }`}
+              />
+              {errors.firstName && (
+                <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
+              )}
+            </div>
+
+            {/* Apellidos en una fila */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Apellido Paterno */}
+              <div>
+                <label htmlFor="lastNameFather" className="block text-sm font-medium text-gray-700 mb-2">
+                  <User className="inline w-4 h-4 mr-2" />
+                  Apellido Paterno *
+                </label>
+                <input
+                  type="text"
+                  id="lastNameFather"
+                  value={formData.lastNameFather}
+                  onChange={(e) => handleInputChange('lastNameFather', e.target.value)}
+                  placeholder="Apellido paterno"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                    errors.lastNameFather ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                  }`}
+                />
+                {errors.lastNameFather && (
+                  <p className="mt-1 text-sm text-red-600">{errors.lastNameFather}</p>
+                )}
+              </div>
+
+              {/* Apellido Materno */}
+              <div>
+                <label htmlFor="lastNameMother" className="block text-sm font-medium text-gray-700 mb-2">
+                  <User className="inline w-4 h-4 mr-2" />
+                  Apellido Materno *
+                </label>
+                <input
+                  type="text"
+                  id="lastNameMother"
+                  value={formData.lastNameMother}
+                  onChange={(e) => handleInputChange('lastNameMother', e.target.value)}
+                  placeholder="Apellido materno"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                    errors.lastNameMother ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                  }`}
+                />
+                {errors.lastNameMother && (
+                  <p className="mt-1 text-sm text-red-600">{errors.lastNameMother}</p>
+                )}
+              </div>
+            </div>
+
             {/* Campo Celular */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
                 <Phone className="inline w-4 h-4 mr-2" />
                 Número de Celular *
               </label>
               <input
                 type="tel"
-                id="phone"
-                value={formData.phone}
-                onChange={(e) => handleInputChange('phone', e.target.value)}
+                id="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                 placeholder="9 1234 5678"
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
-                  errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                  errors.phoneNumber ? 'border-red-300 bg-red-50' : 'border-gray-300'
                 }`}
               />
-              {errors.phone && (
-                <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+              {errors.phoneNumber && (
+                <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>
               )}
             </div>
 
@@ -171,6 +273,28 @@ export default function Form() {
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+              )}
+            </div>
+
+            {/* Campo Sede */}
+            <div>
+              <label htmlFor="sede" className="block text-sm font-medium text-gray-700 mb-2">
+                <MapPin className="inline w-4 h-4 mr-2" />
+                Sede *
+              </label>
+              <select
+                id="sede"
+                value={formData.sede}
+                onChange={(e) => handleInputChange('sede', e.target.value as 'LIMA' | 'AREQUIPA')}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                  errors.sede ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                }`}
+              >
+                <option value="LIMA">Lima</option>
+                <option value="AREQUIPA">Arequipa</option>
+              </select>
+              {errors.sede && (
+                <p className="mt-1 text-sm text-red-600">{errors.sede}</p>
               )}
             </div>
 

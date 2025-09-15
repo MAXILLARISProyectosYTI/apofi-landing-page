@@ -12,6 +12,7 @@ export default function Home() {
     lastNameMother: '',
     phone: '',
     email: '',
+    sede: 'LIMA' as 'LIMA' | 'AREQUIPA',
     acceptTerms: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,7 +58,8 @@ export default function Home() {
         lastNameFather: formData.lastNameFather,
         lastNameMother: formData.lastNameMother,
         phoneNumber: formData.phone,
-        email: formData.email
+        email: formData.email,
+        sede: formData.sede
       };
 
       console.log('Enviando datos a la API:', apiData);
@@ -97,7 +99,7 @@ export default function Home() {
   };
 
   const resetForm = () => {
-    setFormData({ firstName: '', lastNameFather: '', lastNameMother: '', phone: '', email: '', acceptTerms: false });
+    setFormData({ firstName: '', lastNameFather: '', lastNameMother: '', phone: '', email: '', sede: 'LIMA' as 'LIMA' | 'AREQUIPA', acceptTerms: false });
     setIsSubmitted(false);
     setShowConfirmation(false);
     setApiError(null);
@@ -392,7 +394,7 @@ export default function Home() {
                     Formulario de Participación
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Completa tus datos!</h3>
-                  <p className="text-gray-600">Solo necesitamos 5 campos para participar</p>
+                  <p className="text-gray-600">Solo necesitamos 6 campos para participar</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
@@ -401,16 +403,16 @@ export default function Home() {
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gray-600">Progreso del formulario</span>
                       <span className="text-sm font-medium text-primary-600">
-                        {((formData.firstName && formData.lastNameFather && formData.lastNameMother && formData.phone && formData.email && formData.acceptTerms) ? 100 : 
-                          ((formData.firstName ? 1 : 0) + (formData.lastNameFather ? 1 : 0) + (formData.lastNameMother ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 16.67).toFixed(0)}%
+                        {((formData.firstName && formData.lastNameFather && formData.lastNameMother && formData.phone && formData.email && formData.sede && formData.acceptTerms) ? 100 : 
+                          ((formData.firstName ? 1 : 0) + (formData.lastNameFather ? 1 : 0) + (formData.lastNameMother ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.sede ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 14.29).toFixed(0)}%
                       </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                                               <div 
                         className="bg-gradient-to-r from-primary-500 to-secondary-600 h-2 rounded-full transition-all duration-500 ease-out"
                         style={{ 
-                          width: `${(formData.firstName && formData.lastNameFather && formData.lastNameMother && formData.phone && formData.email && formData.acceptTerms) ? 100 : 
-                            ((formData.firstName ? 1 : 0) + (formData.lastNameFather ? 1 : 0) + (formData.lastNameMother ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 16.67}%` 
+                          width: `${(formData.firstName && formData.lastNameFather && formData.lastNameMother && formData.phone && formData.email && formData.sede && formData.acceptTerms) ? 100 : 
+                            ((formData.firstName ? 1 : 0) + (formData.lastNameFather ? 1 : 0) + (formData.lastNameMother ? 1 : 0) + (formData.phone ? 1 : 0) + (formData.email ? 1 : 0) + (formData.sede ? 1 : 0) + (formData.acceptTerms ? 1 : 0)) * 14.29}%` 
                         }}
                       ></div>
                     </div>
@@ -547,6 +549,34 @@ export default function Home() {
                       <div className="flex items-center gap-2 text-green-600 text-sm">
                         <span className="text-lg">✅</span>
                         Email válido
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="sede" className="block text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">📍</span>
+                      Sede *
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="sede"
+                        value={formData.sede}
+                        onChange={(e) => handleInputChange('sede', e.target.value as 'LIMA' | 'AREQUIPA')}
+                        className="w-full px-6 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-800 focus:ring-4 focus:ring-primary-400/30 focus:border-primary-500 transition-all duration-300 hover:border-primary-300 pr-12"
+                        required
+                      >
+                        <option value="LIMA">Lima</option>
+                        <option value="AREQUIPA">Arequipa</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <span className="text-primary-500 text-xl">📍</span>
+                      </div>
+                    </div>
+                    {formData.sede && (
+                      <div className="flex items-center gap-2 text-green-600 text-sm">
+                        <span className="text-lg">✅</span>
+                        Sede seleccionada
                       </div>
                     )}
                   </div>
